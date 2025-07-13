@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP | EduFlex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+    }
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      padding: 12px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Enter OTP</h2>
+    <form method="POST">
+      <input type="text" name="otp" placeholder="Enter OTP" required />
+      <button type="submit">Verify</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+</body>
+</html>
+

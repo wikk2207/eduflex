@@ -1,0 +1,39 @@
+<!-- templates/certificates/data_science.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Science Certificate - EduFlex</title>
+    <style>
+        body {
+            background: #f3f3f3;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .certificate {
+            background: white;
+            padding: 40px;
+            border: 10px solid #0051ff;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        h1 { font-size: 36px; color: #1a1a1a; }
+        p { font-size: 18px; color: #333; }
+        .course { font-size: 24px; color: #0051ff; font-weight: bold; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <h1>Certificate of Completion</h1>
+        <p>This is to certify that</p>
+        <div class="course">{{ user.name }}</div>
+        <p>has successfully completed the course</p>
+        <div class="course">Data Science</div>
+        <p>Duration: 8 Weeks</p>
+        <p>EduFlex Learning Platform</p>
+    </div>
+</body>
+</html>
+

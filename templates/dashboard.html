@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | EduFlex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #fef9f9;
+      padding: 50px;
+    }
+    h2 {
+      color: #6a0dad;
+    }
+    .course {
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .progress-bar {
+      height: 12px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+    .links a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #6a11cb;
+      font-weight: bold;
+    }
+    .edit-btn {
+      margin-top: 20px;
+    }
+    .edit-btn a button {
+      padding: 10px 20px;
+      background: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Welcome, {{ name }}!</h2>
+  {% for course in courses %}
+    <div class="course">
+      <h3>{{ course.name }}</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width: {{ course.progress }}%;"></div>
+      </div>
+      <div class="links">
+        {% if course.quiz %}
+          <a href="{{ course.quiz }}" target="_blank">🧠 Quiz</a>
+        {% endif %}
+        {% if course.certificate %}
+          <a href="{{ course.certificate }}" target="_blank">📜 Certificate</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+  <div class="edit-btn">
+    <a href="{{ url_for('edit_courses') }}"><button>Edit Courses</button></a>
+  </div>
+</body>
+</html>

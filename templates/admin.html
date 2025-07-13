@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | EduFlex</title>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      padding: 40px;
+      background: #f2f2f2;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #6a0dad;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h2>All Registered Users</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Courses</th>
+    </tr>
+    {% for user in data %}
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.courses | join(', ') }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
